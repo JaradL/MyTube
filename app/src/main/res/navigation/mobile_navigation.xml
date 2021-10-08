@@ -3,23 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/navigation_home">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.mytube.android.ui.home.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:id="@+id/navigation_home"
+        android:name="com.mytube.android.ui.home.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.mytube.android.ui.home.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/navigation_stories"
+        android:name="com.mytube.android.ui.home.stories.StoriesFragment"
+        tools:layout="@layout/fragment_stories" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.mytube.android.ui.home.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/navigation_subscriptions"
+        android:name="com.mytube.android.ui.home.subscriptions.SubscriptionsFragment"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.mytube.android.ui.home.library.LibraryFragment"
+        tools:layout="@layout/fragment_library" />
 </navigation>

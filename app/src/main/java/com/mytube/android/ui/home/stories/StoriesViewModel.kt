@@ -1,13 +1,13 @@
-package com.mytube.android.ui.home.ui.slideshow
+package com.mytube.android.ui.home.stories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class SlideshowViewModel : ViewModel() {
+class StoriesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is slideshow Fragment"
+        value = "This is stories Fragment"
     }
     val text: LiveData<String> = _text
 }

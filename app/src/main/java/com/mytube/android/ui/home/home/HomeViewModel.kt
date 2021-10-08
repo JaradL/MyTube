@@ -1,4 +1,4 @@
-package com.mytube.android.ui.home.ui.home
+package com.mytube.android.ui.home.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
