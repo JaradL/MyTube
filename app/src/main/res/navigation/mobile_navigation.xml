@@ -11,9 +11,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_stories"
-        android:name="com.mytube.android.ui.home.stories.StoriesFragment"
-        tools:layout="@layout/fragment_stories" />
+        android:id="@+id/navigation_shorts"
+        android:name="com.mytube.android.ui.home.shorts.ShortsFragment"
+        tools:layout="@layout/fragment_shorts" />
 
     <fragment
         android:id="@+id/navigation_subscriptions"

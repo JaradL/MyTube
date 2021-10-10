@@ -1,10 +1,10 @@
-package com.mytube.android.ui.home.stories
+package com.mytube.android.ui.home.shorts
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class StoriesViewModel : ViewModel() {
+class ShortsViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is stories Fragment"
