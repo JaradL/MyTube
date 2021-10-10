@@ -7,20 +7,20 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.mytube.android.ui.home.home.HomeFragment"
+        android:name="com.mytube.android.ui.main.home.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_shorts"
-        android:name="com.mytube.android.ui.home.shorts.ShortsFragment"
+        android:name="com.mytube.android.ui.main.shorts.ShortsFragment"
         tools:layout="@layout/fragment_shorts" />
 
     <fragment
         android:id="@+id/navigation_subscriptions"
-        android:name="com.mytube.android.ui.home.subscriptions.SubscriptionsFragment"
+        android:name="com.mytube.android.ui.main.subscriptions.SubscriptionsFragment"
         tools:layout="@layout/fragment_subscriptions" />
     <fragment
         android:id="@+id/navigation_library"
-        android:name="com.mytube.android.ui.home.library.LibraryFragment"
+        android:name="com.mytube.android.ui.main.library.LibraryFragment"
         tools:layout="@layout/fragment_library" />
 </navigation>

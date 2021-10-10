@@ -1,4 +1,4 @@
-package com.mytube.android.ui.home.shorts
+package com.mytube.android.ui.main.shorts
 
 import android.os.Bundle
 import android.view.LayoutInflater

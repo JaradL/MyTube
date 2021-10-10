@@ -5,7 +5,7 @@
     android:id="@+id/sign_in_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeActivity">
+    tools:context=".ui.main.HomeActivity">
 
     <FrameLayout
         android:id="@+id/bottom_sheet_layout"
@@ -28,17 +28,6 @@
                 android:textColor="@android:color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageButton
-                android:id="@+id/create_close_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:src="@drawable/ic_close_24"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="24dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/upload_button"

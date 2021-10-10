@@ -1,4 +1,4 @@
-package com.mytube.android.ui.home
+package com.mytube.android.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mytube.android.R
-import kotlinx.android.synthetic.main.create_bottom_sheet.view.*
+import kotlinx.android.synthetic.main.bottom_sheet_create.view.*
 
 class CreateBottomSheet:  BottomSheetDialogFragment() {
     override fun onCreateView(
@@ -17,10 +17,7 @@ class CreateBottomSheet:  BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val view = inflater.inflate(R.layout.create_bottom_sheet, container, false)
-        view.create_close_btn.setOnClickListener {
-
-        }
+        val view = inflater.inflate(R.layout.bottom_sheet_create, container, false)
         return view
     }
 

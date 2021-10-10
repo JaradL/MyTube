@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.home.shorts.ShortsFragment">
+    tools:context=".ui.main.shorts.ShortsFragment">
 
     <TextView
         android:id="@+id/text_stories"

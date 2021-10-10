@@ -1,4 +1,4 @@
-package com.mytube.android.ui.home.subscriptions
+package com.mytube.android.ui.main.subscriptions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

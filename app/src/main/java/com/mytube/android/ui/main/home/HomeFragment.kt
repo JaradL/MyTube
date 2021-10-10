@@ -1,6 +1,7 @@
-package com.mytube.android.ui.home.home
+package com.mytube.android.ui.main.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.mytube.android.data.local.MainRepository
+import com.mytube.android.data.remote.ApiInterface
 import com.mytube.android.databinding.FragmentHomeBinding
+import java.lang.StringBuilder
 
 class HomeFragment : Fragment() {
 
@@ -18,21 +22,27 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private val apiInterface = ApiInterface.create()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val homeViewModel = ViewModelProvider(this, HomeViewModelFactory(MainRepository(apiInterface))).get(HomeViewModel::class.java)
+
+        homeViewModel.getMostPopularVideos()
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+        homeViewModel.videoList.observe(viewLifecycleOwner, Observer {
+            var list = StringBuilder()
+            for (video in it) {
+                list.append(video.snippet.title, ", ")
+            }
+            textView.text = list
         })
         return root
     }

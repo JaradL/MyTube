@@ -1,17 +1,12 @@
-package com.mytube.android.ui.home
+package com.mytube.android.ui.main
 
-import android.content.DialogInterface
-import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mytube.android.R
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class SignInBottomSheet : BottomSheetDialogFragment() {
@@ -22,7 +17,7 @@ class SignInBottomSheet : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val view = inflater.inflate(R.layout.sign_in_bottom_sheet, container, false)
+        val view = inflater.inflate(R.layout.bottom_sheet_sign_in, container, false)
         return view
     }
 

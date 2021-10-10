@@ -1,4 +1,4 @@
-package com.mytube.android.ui.home.library
+package com.mytube.android.ui.main.library
 
 import android.os.Bundle
 import android.view.LayoutInflater

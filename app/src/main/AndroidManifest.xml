@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.main.HomeActivity"
             android:exported="true"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme">

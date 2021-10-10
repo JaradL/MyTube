@@ -9,6 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:titleTextColor="@android:color/white"
         android:background="?attr/colorPrimary"
         />
 
@@ -39,8 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:fabCradleMargin="8dp"
-        app:fabCradleRoundedCornerRadius="8dp"
+        app:fabCradleMargin="4dp"
+        app:fabCradleRoundedCornerRadius="4dp"
         app:contentInsetStart="0dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/create_content_description"
             android:elevation="8dp"
-            app:maxImageSize="56dp"
+            app:maxImageSize="48dp"
             app:tint="@android:color/white"
             android:src="@drawable/ic_create_24"
             app:backgroundTint="@color/colorPrimary"
