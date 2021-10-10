@@ -13,13 +13,15 @@ import retrofit2.Response
 
 class HomeViewModel constructor(private val repository: MainRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
+    val data: LiveData<List<ItemViewModel>>
+        get() = _data
+    private val _data = MutableLiveData<List<ItemViewModel>>(emptyList())
 
-    val videoList = MutableLiveData<List<YouTubeVideo>>()
     val errorMessage = MutableLiveData<String>()
+
+    init {
+        getMostPopularVideos()
+    }
 
     fun getMostPopularVideos() {
 
@@ -29,7 +31,8 @@ class HomeViewModel constructor(private val repository: MainRepository) : ViewMo
                 call: Call<YouTubeVideoListResponse>,
                 response: Response<YouTubeVideoListResponse>
             ) {
-                videoList.postValue(response.body()?.items)
+                val viewData = createViewData(response.body()?.items)
+                _data.postValue(viewData)
             }
 
             override fun onFailure(call: Call<YouTubeVideoListResponse>, t: Throwable) {
@@ -37,5 +40,15 @@ class HomeViewModel constructor(private val repository: MainRepository) : ViewMo
                 errorMessage.postValue(t.message)
             }
         })
+    }
+
+    private fun createViewData(videos: List<YouTubeVideo>?): List<ItemViewModel> {
+        val viewData = mutableListOf<ItemViewModel>()
+        if (videos != null) {
+            for (video in videos) {
+                viewData.add(HomeVideoViewModel(video))
+            }
+        }
+        return viewData
     }
 }

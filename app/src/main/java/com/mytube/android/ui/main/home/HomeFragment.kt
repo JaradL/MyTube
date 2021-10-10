@@ -29,21 +29,15 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding.lifecycleOwner = this
         val homeViewModel = ViewModelProvider(this, HomeViewModelFactory(MainRepository(apiInterface))).get(HomeViewModel::class.java)
-
-        homeViewModel.getMostPopularVideos()
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.viewModel = homeViewModel
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.videoList.observe(viewLifecycleOwner, Observer {
-            var list = StringBuilder()
-            for (video in it) {
-                list.append(video.snippet.title, ", ")
-            }
-            textView.text = list
-        })
+//        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+//        binding.viewModel = homeViewModel
+
         return root
     }
 
