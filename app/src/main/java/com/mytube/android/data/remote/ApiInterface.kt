@@ -19,13 +19,11 @@ interface ApiInterface {
 
     companion object {
         fun create() : ApiInterface {
-
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(Constants.URL_YOUTUBE_API)
                 .build()
             return retrofit.create(ApiInterface::class.java)
-
         }
     }
 }

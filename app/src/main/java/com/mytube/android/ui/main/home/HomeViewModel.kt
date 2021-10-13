@@ -24,7 +24,6 @@ class HomeViewModel constructor(private val repository: MainRepository) : ViewMo
     }
 
     fun getMostPopularVideos() {
-
         val response = repository.getMostPopularVideos()
         response.enqueue(object : Callback<YouTubeVideoListResponse> {
             override fun onResponse(
@@ -36,7 +35,6 @@ class HomeViewModel constructor(private val repository: MainRepository) : ViewMo
             }
 
             override fun onFailure(call: Call<YouTubeVideoListResponse>, t: Throwable) {
-                Log.e("Fuck", t.message.toString())
                 errorMessage.postValue(t.message)
             }
         })
@@ -46,6 +44,7 @@ class HomeViewModel constructor(private val repository: MainRepository) : ViewMo
         val viewData = mutableListOf<ItemViewModel>()
         if (videos != null) {
             for (video in videos) {
+                Log.d("Fuck", video.snippet.publishedAt)
                 viewData.add(HomeVideoViewModel(video))
             }
         }

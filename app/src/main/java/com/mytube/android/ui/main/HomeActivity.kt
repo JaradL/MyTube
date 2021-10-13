@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -30,7 +31,6 @@ class HomeActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_home) as NavHostFragment
         val navController = navHostFragment.navController
-//        val navController = findNavController(R.id.nav_host_fragment_activity_home)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -42,7 +42,19 @@ class HomeActivity : AppCompatActivity() {
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        navView.setupWithNavController(navController)
+        navView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.navigation_home -> navController.navigate(R.id.navigation_home)
+                R.id.navigation_shorts -> navController.navigate(R.id.navigation_shorts)
+                R.id.navigation_placeholder -> {
+                    Toast.makeText(this, "Placeholder", Toast.LENGTH_SHORT).show()
+                }
+                R.id.navigation_subscriptions -> navController.navigate(R.id.navigation_subscriptions)
+                R.id.navigation_library -> navController.navigate(R.id.navigation_library)
+            }
+            true
+        }
         val createFAB = binding.createFab
         createFAB.setOnClickListener {
             val modalCreateSheet = CreateBottomSheet()

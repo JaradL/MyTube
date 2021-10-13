@@ -5,5 +5,5 @@ import com.mytube.android.data.remote.ApiInterface
 
 class MainRepository constructor(private val apiInterface: ApiInterface) {
 
-    fun getMostPopularVideos() = apiInterface.getVideos("mostPopular", Constants.API_KEY, "snippet", 10)
+    fun getMostPopularVideos() = apiInterface.getVideos("mostPopular", Constants.API_KEY, "snippet,statistics", 12)
 }

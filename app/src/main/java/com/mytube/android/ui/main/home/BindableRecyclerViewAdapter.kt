@@ -6,6 +6,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.databinding.library.baseAdapters.BR;
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
+import com.mytube.android.R
+import com.mytube.android.ui.main.HomeActivity
+import com.mytube.android.ui.video.VideoPlayerFragment
 
 class BindableRecyclerViewAdapter : RecyclerView.Adapter<BindableViewHolder>() {
 
@@ -33,6 +38,15 @@ class BindableRecyclerViewAdapter : RecyclerView.Adapter<BindableViewHolder>() {
 
     override fun onBindViewHolder(holder: BindableViewHolder, position: Int) {
         holder.bind(itemViewModels[position])
+        holder.itemView.setOnClickListener {
+            val activity = it.context as HomeActivity
+            activity.supportFragmentManager.commit {
+                add(android.R.id.content, VideoPlayerFragment.newInstance())
+                setReorderingAllowed(true)
+                addToBackStack(null)
+            }
+//            holder.itemView.context.startActivity(Intent(holder.itemView.context, VideoPlayerActivity::class.java))
+        }
     }
 
     fun updateItems(items: List<ItemViewModel>?) {
@@ -42,7 +56,6 @@ class BindableRecyclerViewAdapter : RecyclerView.Adapter<BindableViewHolder>() {
 }
 
 class BindableViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
-
     fun bind(itemViewModel: ItemViewModel) {
         binding.setVariable(BR.itemViewModel, itemViewModel)
     }
