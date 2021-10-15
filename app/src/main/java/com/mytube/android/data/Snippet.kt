@@ -1,7 +1,10 @@
 package com.mytube.android.data
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Snippet (
     @SerializedName("publishedAt") val publishedAt : String,
     @SerializedName("channelId") val channelId : String,
@@ -13,4 +16,4 @@ data class Snippet (
     @SerializedName("liveBroadcastContent") val liveBroadcastContent : String,
     @SerializedName("localized") val localized : Localized,
     @SerializedName("defaultAudioLanguage") val defaultAudioLanguage : String
-)
+) : Parcelable

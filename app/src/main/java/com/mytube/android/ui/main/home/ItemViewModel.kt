@@ -11,7 +11,7 @@ interface ItemViewModel {
         get() = 0
 }
 
-class HomeVideoViewModel(val video: YouTubeVideo) : ItemViewModel {
+class HomeVideoViewModel(val video: YouTubeVideo): ItemViewModel {
     override val layoutId: Int = R.layout.item_home_video
     override val viewType: Int = 0
 }

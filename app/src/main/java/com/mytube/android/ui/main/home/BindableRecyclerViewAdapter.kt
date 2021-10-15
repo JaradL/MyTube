@@ -7,8 +7,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.databinding.library.baseAdapters.BR;
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
-import com.mytube.android.R
 import com.mytube.android.ui.main.HomeActivity
 import com.mytube.android.ui.video.VideoPlayerFragment
 
@@ -41,11 +39,10 @@ class BindableRecyclerViewAdapter : RecyclerView.Adapter<BindableViewHolder>() {
         holder.itemView.setOnClickListener {
             val activity = it.context as HomeActivity
             activity.supportFragmentManager.commit {
-                add(android.R.id.content, VideoPlayerFragment.newInstance())
+                add(android.R.id.content, VideoPlayerFragment.newInstance((itemViewModels[position] as HomeVideoViewModel).video))
                 setReorderingAllowed(true)
                 addToBackStack(null)
             }
-//            holder.itemView.context.startActivity(Intent(holder.itemView.context, VideoPlayerActivity::class.java))
         }
     }
 
